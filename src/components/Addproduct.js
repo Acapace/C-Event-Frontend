@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Button, Card, Form, Container, Row, Col } from 'react-bootstrap';
 
 const Addproduct = (props) => {
 
@@ -16,7 +17,36 @@ const Addproduct = (props) => {
 
     return (
         <>
-            <form onSubmit={handleSubmitProduct}>
+
+
+            <Container>
+                <Row>
+                    <Col></Col>
+                    <Col>
+                        <Card style={{ width: '43rem' }} >
+
+                            <Form style={{ width: '40rem' }} onSubmit={handleSubmitProduct} >
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+
+                                    <Form.Label htmlFor="date">Item:</Form.Label>
+                                    <Form.Control size="sm" type="text" name="name" value={product.name} onChange={handleChangeProduct} placeholder="" />
+                                    <Form.Label>Item Description:</Form.Label>
+                                    <Form.Control size="sm" type="text" name="description" value={product.description} onChange={handleChangeProduct} placeholder="" />
+                                    <Form.Label>Price $:</Form.Label>
+                                    <Form.Control size="sm" type="text" name="location" value={product.price} onChange={handleChangeProduct} placeholder="" />
+                                    <Form.Label>Item Image:</Form.Label>
+                                    <Form.Control size="sm" type="text" name="Iten:" value={product.image_link} onChange={handleChangeProduct} placeholder="" />
+                                    <Button variant="primary" as="input" type="submit" />
+                                </Form.Group>
+                            </Form>
+                        </Card>
+                    </Col>
+                    <Col></Col>
+                </Row>
+            </Container>
+
+
+            {/* <form onSubmit={handleSubmitProduct}>
 
                 <label htmlFor="name">Item: </label>
                 <input type="text" name="name" value={product.name} onChange={handleChangeProduct} />
@@ -35,7 +65,7 @@ const Addproduct = (props) => {
                 <br />
                 <br />
                 <input type="submit" />
-            </form>
+            </form> */}
         </>
     )
 }

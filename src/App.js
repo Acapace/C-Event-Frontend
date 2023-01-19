@@ -4,8 +4,14 @@ import Add from './components/Add.js'
 import Addproduct from './components/Addproduct.js'
 import Edit from './components/Edit.js'
 import Editproduct from './components/Editproduct.js'
-
-
+// -------------------------------------------------------------------------- \\
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Button, Card, ListGroup, Row, Col } from 'react-bootstrap';
+import Carousel from 'react-bootstrap/Carousel';
 
 // -------------------------------------------------------------------------- \\
 
@@ -18,21 +24,43 @@ const App = () => {
   let [blog, setBlog] = useState([])
   let [product, setProduct] = useState([])
 
+  //---------
+  //EDIT Modal
+  //----------
+
+  // const [showModal, setShowModal] = useState(false)
+  // const [blogEditItem, setBlogItem] = useState({})
+
+  // const editBlog = (blogItem) => () => {
+  //   setShowModal(true)
+  //   setBlogItem(blogItem)
+  // }
+
+
   // --------------------
   // Setting parts to show or hide depending on button clicked
   // --------------------
   const [showBlog, setShowBlog] = useState(true)
   const [showProduct, setShowProduct] = useState(false)
+  const [showHomePage, setShowHomePage] = useState(false)
 
+
+  const homePageVisibility = () => {
+    setShowProduct(false)
+    setShowBlog(false)
+    setShowHomePage(true)
+  }
 
   const productVisibility = () => {
     setShowProduct(true)
     setShowBlog(false)
+    setShowHomePage(false)
   }
 
   const blogVisibility = () => {
     setShowProduct(false)
     setShowBlog(true)
+    setShowHomePage(false)
   }
 
   // --------------------
@@ -124,16 +152,64 @@ const App = () => {
   return (
     <>
 
+      {/* NAV BAR WITH LINK TO EACH PAGE */}
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">CAR EVENTS</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#home" onClick={homePageVisibility}>Home</Nav.Link>
+            <Nav.Link href="#features" onClick={blogVisibility}>Blog</Nav.Link>
+            <Nav.Link href="#pricing" onClick={productVisibility}>Store</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
 
-      {/* BUTTONS TO CLICK FOR THE SCREEN TO SHOW */}
-      <list>
-        <button onClick={blogVisibility}>Blog</button>
-      </list>
-      <br />
-      <list>
-        <button onClick={productVisibility}>Product</button>
-      </list>
 
+
+      {showHomePage ? <>
+
+        {/* CAROUSEL FOR HOME PAGE */}
+        <Carousel fade>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="images/z.png"
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              {/* <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-5"
+              src=""
+              alt="Second slide"
+            />
+
+            <Carousel.Caption>
+              {/* <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="holder.js/800x400?text=Third slide&bg=20232a"
+              alt="Third slide"
+            />
+
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+
+      </> : <></>}
 
       {/* SHOWS BLOG SECTION */}
       {showBlog ? <>
@@ -143,15 +219,29 @@ const App = () => {
           {
             blog.map((blog) => {
               return (
-                <div className="blog" key={blog.id}>
-                  <h4>Date: {blog.date}</h4>
-                  <h4>Event Name: {blog.name}</h4>
-                  <h4>Event Location: {blog.location}</h4>
-                  <h4>Topic: {blog.topic}</h4>
-                  <h4>Text: {blog.text}</h4>
-                  <Edit handleUpdate={handleUpdate} blog={blog} />
-                  <br />
-                  <button onClick={handleDelete} value={blog.id}>Delete</button>
+
+                <div className="blog" key={blog.id} >
+                  <Container>
+                    <Row>
+                      <Col></Col>
+                      <Col>
+                        <Card style={{ width: '30rem' }}>
+                          <Card.Body>
+                            <ListGroup variant="flush">
+                              <ListGroup.Item>Date: {blog.date} </ListGroup.Item>
+                              <ListGroup.Item>Event Name: {blog.name}</ListGroup.Item>
+                              <ListGroup.Item>Event Location: {blog.location} </ListGroup.Item>
+                              <ListGroup.Item>Topic: {blog.topic}</ListGroup.Item>
+                              <ListGroup.Item>Text: {blog.text}</ListGroup.Item>
+                            </ListGroup>
+                            <Edit handleUpdate={handleUpdate} blog={blog} />
+                            <Button onClick={handleDelete} value={blog.id}>Delete</Button>
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                      <Col></Col>
+                    </Row>
+                  </Container>
                 </div>
               )
             })
@@ -159,6 +249,12 @@ const App = () => {
         </div>
 
       </> : <></>}
+
+      {/* <EditModal open={showModal}
+        onClose={() => { setShowModal(false) }}
+        initialBlog={blogEditItem}
+        onDelete={handleDelete}
+        onSubmit={handleUpdate} /> */}
 
 
       {/* SHOWS PRODUCT SECTION */}
@@ -170,15 +266,28 @@ const App = () => {
             product.map((product) => {
               return (
                 <div className="product" key={product.id}>
-                  <h4>Name: {product.name}</h4>
-                  <h4>Description: {product.description}</h4>
-                  <h4>Price $: {product.price}</h4>
-                  <h4>Image: {product.image_link}</h4>
-                  <Editproduct handleUpdateProduct={handleUpdateProduct} product={product} />
-                  <br />
-                  <button onClick={handleDeleteProduct} value={product.id}> Delete</button>
+                  <Container>
+                    <Row>
+                      <Col></Col>
+                      <Col>
+                        <Card style={{ width: '30rem' }}>
+                          <Card.Body >
+                            <ListGroup variant="flush">
+                              <ListGroup.Item>Item: {product.name} </ListGroup.Item>
+                              <ListGroup.Item>Description: {product.description}</ListGroup.Item>
+                              <ListGroup.Item>Price $: {product.price} </ListGroup.Item>
+                              <ListGroup.Item>Item Image: {product.image_link}</ListGroup.Item>
+                            </ListGroup>
+                            <Editproduct handleUpdateProduct={handleUpdateProduct} product={product} />
+                            <Button onClick={handleDelete} value={product.id}>Delete</Button>
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                      <Col>
+                      </Col>
+                    </Row>
+                  </Container>
                 </div>
-
               )
             })
           }
