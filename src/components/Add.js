@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { Button, Card, Form, Container, Row, Col } from 'react-bootstrap';
+// -------------------------------------------------------------------------- \\
 
 const Add = (props) => {
 
@@ -17,7 +21,37 @@ const Add = (props) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <Container>
+                <Row>
+                    <Col></Col>
+                    <Col>
+                        <Card style={{ width: '43rem' }} >
+                            <Form style={{ width: '40rem' }} onSubmit={handleSubmit} >
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                    <Form.Label htmlFor="date">Date:</Form.Label>
+                                    <Form.Control size="sm" type="text" name="date" value={blog.date} onChange={handleChange} placeholder="" />
+                                    <Form.Label>Event Name:</Form.Label>
+                                    <Form.Control size="sm" type="text" name="name" value={blog.name} onChange={handleChange} placeholder="" />
+                                    <Form.Label>Event location:</Form.Label>
+                                    <Form.Control size="sm" type="text" name="location" value={blog.location} onChange={handleChange} placeholder="" />
+                                    <Form.Label>Topic:</Form.Label>
+                                    <Form.Control size="sm" type="text" name="topic" value={blog.topic} onChange={handleChange} placeholder="" />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                    <Form.Label>Text:</Form.Label>
+                                    <Form.Control size="sm" as="textarea" rows={5} type="text" name="text" value={blog.text} onChange={handleChange} />
+                                    <br />
+                                    <Button variant="primary" as="input" type="submit" />
+                                </Form.Group>
+                            </Form>
+                        </Card>
+                    </Col>
+                    <Col></Col>
+                </Row>
+            </Container>
+
+
+            {/* <form onSubmit={handleSubmit}>
                 <label htmlFor="date">Date: </label>
                 <input type="text" name="date" value={blog.date} onChange={handleChange} />
                 <br />
@@ -39,7 +73,7 @@ const Add = (props) => {
                 <br />
                 <br />
                 <input type="submit" />
-            </form>
+            </form> */}
         </>
     )
 }
