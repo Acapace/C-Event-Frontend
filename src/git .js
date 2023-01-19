@@ -221,6 +221,7 @@ const App = () => {
               return (
 
                 <div className="blog" key={blog.id} >
+
                   <Container>
                     <Row>
                       <Col></Col>
@@ -242,6 +243,7 @@ const App = () => {
                       <Col></Col>
                     </Row>
                   </Container>
+
                 </div>
               )
             })
