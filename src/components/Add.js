@@ -28,8 +28,10 @@ const Add = (props) => {
                         <Card style={{ width: '43rem' }} >
                             <Form style={{ width: '40rem' }} onSubmit={handleSubmit} >
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+
                                     <Form.Label htmlFor="date">Date:</Form.Label>
                                     <Form.Control size="sm" type="text" name="date" value={blog.date} onChange={handleChange} placeholder="" />
+
                                     <Form.Label>Event Name:</Form.Label>
                                     <Form.Control size="sm" type="text" name="name" value={blog.name} onChange={handleChange} placeholder="" />
                                     <Form.Label>Event location:</Form.Label>
@@ -41,7 +43,9 @@ const Add = (props) => {
                                     <Form.Label>Text:</Form.Label>
                                     <Form.Control size="sm" as="textarea" rows={5} type="text" name="text" value={blog.text} onChange={handleChange} />
                                     <br />
-                                    <Button variant="primary" as="input" type="submit" />
+                                    <div className="d-grid gap-2">
+                                        <Button variant="primary" as="input" type="submit" />
+                                    </div>
                                 </Form.Group>
                             </Form>
                         </Card>

@@ -4,6 +4,7 @@ import Add from './components/Add.js'
 import Addproduct from './components/Addproduct.js'
 import Edit from './components/Edit.js'
 import Editproduct from './components/Editproduct.js'
+import EditModal from './components/EditModal.js'
 // -------------------------------------------------------------------------- \\
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -27,14 +28,8 @@ const App = () => {
   //---------
   //EDIT Modal
   //----------
+  const [modalShow, setModalShow] = useState(false);
 
-  // const [showModal, setShowModal] = useState(false)
-  // const [blogEditItem, setBlogItem] = useState({})
-
-  // const editBlog = (blogItem) => () => {
-  //   setShowModal(true)
-  //   setBlogItem(blogItem)
-  // }
 
 
   // --------------------
@@ -228,14 +223,22 @@ const App = () => {
                         <Card style={{ width: '30rem' }}>
                           <Card.Body>
                             <ListGroup variant="flush">
-                              <ListGroup.Item>Date: {blog.date} </ListGroup.Item>
+                              <Card.Header>
+                                <ListGroup.Item>Date: {blog.date} </ListGroup.Item>
+                              </Card.Header>
                               <ListGroup.Item>Event Name: {blog.name}</ListGroup.Item>
                               <ListGroup.Item>Event Location: {blog.location} </ListGroup.Item>
                               <ListGroup.Item>Topic: {blog.topic}</ListGroup.Item>
                               <ListGroup.Item>Text: {blog.text}</ListGroup.Item>
                             </ListGroup>
-                            <Edit handleUpdate={handleUpdate} blog={blog} />
-                            <Button onClick={handleDelete} value={blog.id}>Delete</Button>
+                            {/* <Edit handleUpdate={handleUpdate} blog={blog} /> */}
+
+
+                            <Button variant="outline-primary" size="sm" onClick={() => setModalShow(true)}>
+                              Edit
+                            </Button>
+
+
                           </Card.Body>
                         </Card>
                       </Col>
@@ -248,13 +251,18 @@ const App = () => {
           }
         </div>
 
-      </> : <></>}
+      </> : <>
+      </>}
 
-      {/* <EditModal open={showModal}
-        onClose={() => { setShowModal(false) }}
-        initialBlog={blogEditItem}
+      <EditModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
         onDelete={handleDelete}
-        onSubmit={handleUpdate} /> */}
+      />
+
+
+
+
 
 
       {/* SHOWS PRODUCT SECTION */}
