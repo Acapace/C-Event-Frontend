@@ -26,12 +26,10 @@ const Add = (props) => {
                     <Col></Col>
                     <Col>
                         <Card style={{ width: '43rem' }} >
-                            <Form style={{ width: '40rem' }} onSubmit={handleSubmit} >
+                            <Form class="center-text" style={{ width: '40rem' }} onSubmit={handleSubmit} >
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-
                                     <Form.Label htmlFor="date">Date:</Form.Label>
                                     <Form.Control size="sm" type="text" name="date" value={blog.date} onChange={handleChange} placeholder="" />
-
                                     <Form.Label>Event Name:</Form.Label>
                                     <Form.Control size="sm" type="text" name="name" value={blog.name} onChange={handleChange} placeholder="" />
                                     <Form.Label>Event location:</Form.Label>
@@ -40,7 +38,7 @@ const Add = (props) => {
                                     <Form.Control size="sm" type="text" name="topic" value={blog.topic} onChange={handleChange} placeholder="" />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                    <Form.Label>Text:</Form.Label>
+                                    <Form.Label>Post:</Form.Label>
                                     <Form.Control size="sm" as="textarea" rows={5} type="text" name="text" value={blog.text} onChange={handleChange} />
                                     <br />
                                     <div className="d-grid gap-2">
@@ -54,30 +52,6 @@ const Add = (props) => {
                 </Row>
             </Container>
 
-
-            {/* <form onSubmit={handleSubmit}>
-                <label htmlFor="date">Date: </label>
-                <input type="text" name="date" value={blog.date} onChange={handleChange} />
-                <br />
-                <br />
-                <label htmlFor="name">Event Name: </label>
-                <input type="text" name="name" value={blog.name} onChange={handleChange} />
-                <br />
-                <br />
-                <label htmlFor="location"> Event Location: </label>
-                <input type="text" name="location" value={blog.location} onChange={handleChange} />
-                <br />
-                <br />
-                <label htmlFor="topic"> Topic: </label>
-                <input type="text" name="topic" value={blog.topic} onChange={handleChange} />
-                <br />
-                <br />
-                <label htmlFor="text"> Text: </label>
-                <input type="text" name="text" value={blog.text} onChange={handleChange} />
-                <br />
-                <br />
-                <input type="submit" />
-            </form> */}
         </>
     )
 }

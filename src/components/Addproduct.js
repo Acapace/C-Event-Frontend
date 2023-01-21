@@ -27,6 +27,12 @@ const Addproduct = (props) => {
 
                             <Form style={{ width: '40rem' }} onSubmit={handleSubmitProduct} >
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                    {/* 
+                                    <Form.Label htmlFor="date">Vendor::</Form.Label>
+                                    <Form.Control size="sm" type="text" name="name" value={product.vendor.name} onChange={handleChangeProduct} placeholder="" /> */}
+
+
+
 
                                     <Form.Label htmlFor="date">Item:</Form.Label>
                                     <Form.Control size="sm" type="text" name="name" value={product.name} onChange={handleChangeProduct} placeholder="" />
@@ -45,27 +51,6 @@ const Addproduct = (props) => {
                 </Row>
             </Container>
 
-
-            {/* <form onSubmit={handleSubmitProduct}>
-
-                <label htmlFor="name">Item: </label>
-                <input type="text" name="name" value={product.name} onChange={handleChangeProduct} />
-                <br />
-                <br />
-                <label htmlFor="description"> Description: </label>
-                <input type="text" name="description" value={product.description} onChange={handleChangeProduct} />
-                <br />
-                <br />
-                <label htmlFor="price"> Price $: </label>
-                <input type="text" name="price" value={product.price} onChange={handleChangeProduct} />
-                <br />
-                <br />
-                <label htmlFor="image"> Image: </label>
-                <input type="text" name="image" value={product.image_link} onChange={handleChangeProduct} />
-                <br />
-                <br />
-                <input type="submit" />
-            </form> */}
         </>
     )
 }
