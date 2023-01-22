@@ -71,7 +71,7 @@ const App = () => {
   ///////////BLOG///////////
   const getBlog = () => {
     axios
-      .get('http://localhost:8000/api/blog')
+      .get('https://sleepy-beach-54831.herokuapp.com/api/blog')
       .then(
         (response) => setBlog(response.data),
         (err) => console.log(err)
@@ -81,7 +81,7 @@ const App = () => {
 
   const handleCreate = (addBlogEntry) => {
     axios
-      .post('http://localhost:8000/api/blog', addBlogEntry)
+      .post('https://sleepy-beach-54831.herokuapp.com/api/blog', addBlogEntry)
       .then((response) => {
         console.log(response);
         getBlog()
@@ -91,7 +91,7 @@ const App = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete('http://localhost:8000/api/blog/' + id)
+      .delete('https://sleepy-beach-54831.herokuapp.com/api/blog/' + id)
       .then((response) => {
         getBlog()
       })
@@ -101,7 +101,7 @@ const App = () => {
   const handleUpdate = (editBlog) => {
     console.log(editBlog)
     axios
-      .put('http://localhost:8000/api/blog/' + editBlog.id, editBlog)
+      .put('https://sleepy-beach-54831.herokuapp.com/api/blog/' + editBlog.id, editBlog)
       .then((response) => {
         console.log(response)
         getBlog()
@@ -111,7 +111,7 @@ const App = () => {
   ///////////PRODUCTS///////////
   const getProduct = () => {
     axios
-      .get('http://localhost:8000/api/products')
+      .get('https://sleepy-beach-54831.herokuapp.com/api/products')
       .then(
         (response) => setProduct(response.data),
         (err) => console.log(err)
@@ -121,7 +121,7 @@ const App = () => {
 
   const handleCreateProduct = (addProductEntry) => {
     axios
-      .post('http://localhost:8000/api/products', addProductEntry)
+      .post('https://sleepy-beach-54831.herokuapp.com/api/products', addProductEntry)
       .then((response) => {
         console.log(response);
         getProduct()
@@ -130,7 +130,7 @@ const App = () => {
 
   const handleDeleteProduct = (id) => {
     axios
-      .delete('http://localhost:8000/api/products/' + id)
+      .delete('https://sleepy-beach-54831.herokuapp.com/api/products/' + id)
       .then((response) => {
         getProduct()
       })
@@ -139,7 +139,7 @@ const App = () => {
 
   const handleUpdateProduct = (editProduct) => {
     axios
-      .put('http://localhost:8000/api/products/' + editProduct.id, editProduct)
+      .put('https://sleepy-beach-54831.herokuapp.com/api/products/' + editProduct.id, editProduct)
       .then((response) => {
         getProduct()
       })
