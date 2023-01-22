@@ -41,9 +41,9 @@ const App = () => {
   // --------------------
   // Setting parts to show or hide depending on button clicked
   // --------------------
-  const [showBlog, setShowBlog] = useState(true)
+  const [showBlog, setShowBlog] = useState(false)
   const [showProduct, setShowProduct] = useState(false)
-  const [showHomePage, setShowHomePage] = useState(false)
+  const [showHomePage, setShowHomePage] = useState(true)
 
 
   const homePageVisibility = () => {
