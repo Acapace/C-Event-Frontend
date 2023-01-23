@@ -1,70 +1,18 @@
-# Getting Started with Create React App
+A.Auto Events Blog Fontend:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Technologies used:
+-React, Bootstrap and Sass
 
-## Available Scripts
+About this project:
 
-In the project directory, you can run:
+-I created this app for car enthusiasts to be able to blog their experience of an auto show. I also wanted to show product availability.
+-On the main page of this app, you are able to have the option to be directed to two other pages: Blog and Store.
+-When clicking on the "Blog" you are directed to the blog page which has a form for you to enter in the: Date, Event Name, Event location, Topic and Text. Clicking submit allows your post to drop down into a card for others to see. On the card you are able to edit the post by clicking "edit" allowing a modal to pop up with the fields to edit. Having the option to save or delete your post, the modal will then close.
+-When clicking on the "store", merchanise will appear. The administrator is allowed to enter this information from the backend. There are cards that show: Vendor, Item, Description, Price, Catergory, and Image.
 
-### `npm start`
+Struggles:
+-I ended up having to make the decision to not add in a few models that i created from the backend due to timing. I had created a car model that has a model within to choose options. This is something i would like to go back and add.
+-I would like to have added user authentication for this project.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Live site:
+https://app.netlify.com/sites/aautoevents/overview
